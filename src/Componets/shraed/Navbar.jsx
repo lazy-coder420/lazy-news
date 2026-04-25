@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import React from 'react'
 import user from '@/assets/image/user.png'
+import NavLink from './Navlink'
 
 const Navbar = () => {
   return (
@@ -9,15 +10,15 @@ const Navbar = () => {
       <div></div>
       <ul className='flex gap-4 items-center'>
         <li>
-          <Link href={'/'}>Home</Link>
+          <NavLink href={'/'}>Home</NavLink>
         </li>
 
 
         <li>
-          <Link href={'/About'}>About</Link>
+          <NavLink href={'/About'}>About</NavLink>
         </li>
         <li>
-          <Link href={'/Career'}>Career</Link>
+          <NavLink href={'/Career'}>Career</NavLink>
         </li>
       </ul>
 

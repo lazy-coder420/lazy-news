@@ -1,6 +1,6 @@
-import Breaking from '@/Componets/Breaking'
-import Header from '@/Componets/Header'
-import Navbar from '@/Componets/Navbar'
+import Breaking from '@/Componets/shraed/Breaking'
+import Header from '@/Componets/shraed/Header'
+import Navbar from '@/Componets/shraed/Navbar'
 import React from 'react'
 
 const MainLayout = ({ children }) => {
