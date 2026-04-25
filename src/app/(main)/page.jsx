@@ -6,4 +6,15 @@ const HomePage = async () => {
   redirect(`/categories/${default_category_id}`);
 };
 
+
+
+
+
+
+
+
+
+
+
+
 export default HomePage;

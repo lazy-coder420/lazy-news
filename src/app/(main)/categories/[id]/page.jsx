@@ -30,7 +30,7 @@ const NewsCategoriesPage = async ({ params }) => {
             <div className="col-span-3 bg-cyan-100 p-4 rounded">
                 <RightBar />
             </div>
-
+<h1>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit nihil veritatis voluptatem dolor commodi reprehenderit distinctio animi quos temporibus. Itaque reprehenderit alias illum ipsum maxime modi quos quisquam tempora corrupti!</h1>
         </div>
     );
 };
