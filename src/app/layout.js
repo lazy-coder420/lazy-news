@@ -1,7 +1,6 @@
 import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
 
-// ✅ MUST be outside component
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -17,6 +16,12 @@ const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
   variable: "--font-poppins",
 });
+
+// ✅ metadata MUST be here
+export const metadata = {
+  title: "Lazy News",
+  description: "News App",
+};
 
 export default function RootLayout({ children }) {
   return (
