@@ -1,15 +1,27 @@
 "use client";
 
 import Link from "next/link";
+import { useForm } from "react-hook-form";
 
 const RegisterPage = () => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+
+  const password = watch("password");
+
+  const handleRegister = (data) => {
+    console.log("Register Data:", data);
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
 
-      {/* Card */}
       <div className="bg-white w-full max-w-md p-8 rounded-lg shadow-md">
 
-        {/* Title */}
         <h1 className="text-2xl font-semibold text-center mb-6">
           Create your account
         </h1>
@@ -17,7 +29,7 @@ const RegisterPage = () => {
         <hr className="mb-6" />
 
         {/* Form */}
-        <form className="space-y-5">
+        <form onSubmit={handleSubmit(handleRegister)} className="space-y-5">
 
           {/* Name */}
           <div>
@@ -27,8 +39,12 @@ const RegisterPage = () => {
             <input
               type="text"
               placeholder="Enter your full name"
-              className="w-full p-3 rounded-md bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-400"
+              {...register("name", { required: "Name is required" })}
+              className="w-full p-3 rounded-md bg-gray-100"
             />
+            {errors.name && (
+              <p className="text-red-500 text-sm">{errors.name.message}</p>
+            )}
           </div>
 
           {/* Email */}
@@ -39,8 +55,12 @@ const RegisterPage = () => {
             <input
               type="email"
               placeholder="Enter your email address"
-              className="w-full p-3 rounded-md bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-400"
+              {...register("email", { required: "Email is required" })}
+              className="w-full p-3 rounded-md bg-gray-100"
             />
+            {errors.email && (
+              <p className="text-red-500 text-sm">{errors.email.message}</p>
+            )}
           </div>
 
           {/* Password */}
@@ -51,8 +71,18 @@ const RegisterPage = () => {
             <input
               type="password"
               placeholder="Enter your password"
-              className="w-full p-3 rounded-md bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-400"
+              {...register("password", {
+                required: "Password is required",
+                minLength: {
+                  value: 6,
+                  message: "Minimum 6 characters",
+                },
+              })}
+              className="w-full p-3 rounded-md bg-gray-100"
             />
+            {errors.password && (
+              <p className="text-red-500 text-sm">{errors.password.message}</p>
+            )}
           </div>
 
           {/* Confirm Password */}
@@ -63,36 +93,50 @@ const RegisterPage = () => {
             <input
               type="password"
               placeholder="Confirm your password"
-              className="w-full p-3 rounded-md bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-400"
+              {...register("confirmPassword", {
+                required: "Confirm your password",
+                validate: (value) =>
+                  value === password || "Passwords do not match",
+              })}
+              className="w-full p-3 rounded-md bg-gray-100"
             />
+            {errors.confirmPassword && (
+              <p className="text-red-500 text-sm">
+                {errors.confirmPassword.message}
+              </p>
+            )}
           </div>
 
-          {/* Terms & Conditions */}
+          {/* Terms */}
           <div className="flex items-start gap-2">
             <input
               type="checkbox"
-              className="mt-1 w-4 h-4 accent-gray-800"
-              required
+              {...register("terms", {
+                required: "You must accept terms",
+              })}
+              className="mt-1 w-4 h-4"
             />
             <label className="text-sm text-gray-600">
               I agree to the{" "}
-              <Link href="/terms" className="text-blue-500 hover:underline">
+              <Link href="/terms" className="text-blue-500">
                 Terms & Conditions
               </Link>
             </label>
           </div>
+          {errors.terms && (
+            <p className="text-red-500 text-sm">{errors.terms.message}</p>
+          )}
 
           {/* Button */}
           <button
             type="submit"
-            className="w-full bg-gray-800 text-white py-3 rounded-md hover:bg-gray-900 transition"
+            className="w-full bg-gray-800 text-white py-3 rounded-md"
           >
             Register
           </button>
 
         </form>
 
-        {/* Footer */}
         <p className="text-center mt-5 text-gray-600">
           Already have an account?{" "}
           <Link href="/login" className="text-blue-500 font-medium">
