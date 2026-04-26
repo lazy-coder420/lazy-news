@@ -25,9 +25,11 @@ const Navbar = () => {
 
       <div className='flex gap-4'>
         <Image src={user} alt='user' className='w-10 h-10 rounded-full' />
-        <button className=' btn btn-success '>
-          <Link href={'/Login'}>Login</Link>
-        </button>
+
+        {/* 🔥 FIXED LOGIN BUTTON */}
+        <Link href="/login" className="btn btn-success">
+          Login
+        </Link>
       </div>
 
     </div>

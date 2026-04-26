@@ -1,4 +1,5 @@
-import Navbar from '@/Componets/Navbar'
+
+import Navbar from '@/Componets/shraed/Navbar'
 import React from 'react'
 
 const AuthLayout = ({ children }) => {
