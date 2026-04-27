@@ -3,6 +3,8 @@
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import { useForm, SubmitHandler } from "react-hook-form"
+import { useState } from "react";
+import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 
 
 const LoginPage = () => {
@@ -12,6 +14,10 @@ const LoginPage = () => {
         formState: { errors },
     } = useForm();
 
+
+    const [isShowPassword, setIsShowPassword] = useState("False")
+
+
     const handleLogin = async (data) => {
         console.log("Login Data:", data);
 
@@ -19,6 +25,7 @@ const LoginPage = () => {
             email: data.email, // required
             password: data.password, // required
             rememberMe: true,
+            image: data.image,
             callbackURL: "/",
         });
 
@@ -64,13 +71,13 @@ const LoginPage = () => {
                     </div>
 
                     {/* Password */}
-                    <div>
+                    <div className="relative">
                         <label className="block mb-2 font-medium text-gray-700">
                             Password
                         </label>
 
                         <input
-                            type="password"
+                            type={isShowPassword ? "text" : "password"}
                             placeholder="Enter your password"
                             {...register("password", {
                                 required: "Password is required",
@@ -79,8 +86,21 @@ const LoginPage = () => {
                                     message: "Password must be at least 6 characters",
                                 },
                             })}
-                            className="w-full p-3 rounded-md bg-gray-100 focus:outline-none"
+                            className="w-full p-3 pr-10 rounded-md bg-gray-100 focus:outline-none"
                         />
+
+                        {/* Icon button */}
+                        <button
+                            type="button"
+                            onClick={() => setIsShowPassword(!isShowPassword)}
+                            className="absolute right-3 top-12 text-gray-500 hover:text-black cursor-pointer"
+                        >
+                            {isShowPassword ? (
+                                <EyeIcon className="w-5 h-5" />
+                            ) : (
+                                <EyeSlashIcon className="w-5 h-5" />
+                            )}
+                        </button>
 
                         {errors.password && (
                             <p className="text-red-500 text-sm mt-1">

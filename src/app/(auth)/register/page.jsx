@@ -3,6 +3,8 @@
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
+import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 
 const RegisterPage = () => {
   const {
@@ -11,8 +13,9 @@ const RegisterPage = () => {
     watch,
     formState: { errors },
   } = useForm();
-
   const password = watch("password");
+
+  const [isShowPassword, setIsShowPassword] = useState("False")
 
   const handleRegister = async (data) => {
 
@@ -23,15 +26,15 @@ const RegisterPage = () => {
       name: data.name, // required
       email: data.email, // required
       password: data.password, // required
-
+      image: data.image,
       callbackURL: "/",
 
     })
     console.log(res, error)
-    if(error){
+    if (error) {
       alert(error.message)
     }
-    if(res){
+    if (res) {
       alert("signup successfull")
     }
 
@@ -84,12 +87,12 @@ const RegisterPage = () => {
           </div>
 
           {/* Password */}
-          <div>
+          <div className="relative">
             <label className="block mb-2 font-medium text-gray-700">
               Password
             </label>
             <input
-              type="password"
+              type={isShowPassword ? "text" : "password"}
               placeholder="Enter your password"
               {...register("password", {
                 required: "Password is required",
@@ -100,6 +103,20 @@ const RegisterPage = () => {
               })}
               className="w-full p-3 rounded-md bg-gray-100"
             />
+
+            {/* Icon button */}
+            <button
+              type="button"
+              onClick={() => setIsShowPassword(!isShowPassword)}
+              className="absolute right-3 top-12 text-gray-500 hover:text-black cursor-pointer"
+            >
+              {isShowPassword ? (
+                <EyeIcon className="w-5 h-5" />
+              ) : (
+                <EyeSlashIcon className="w-5 h-5" />
+              )}
+            </button>
+
             {errors.password && (
               <p className="text-red-500 text-sm">{errors.password.message}</p>
             )}
@@ -126,6 +143,21 @@ const RegisterPage = () => {
               </p>
             )}
           </div>
+
+
+          {/* Image URL */}
+          <div>
+            <label className="block mb-2 font-medium text-gray-700">
+              Profile Image
+            </label>
+            <input
+              type="text"
+              placeholder="Enter image URL"
+              {...register("image")}
+              className="w-full p-3 rounded-md bg-gray-100"
+            />
+          </div>
+
 
           {/* Terms */}
           <div className="flex items-start gap-2">
