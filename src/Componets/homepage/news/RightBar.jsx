@@ -1,27 +1,42 @@
+'use client'
+
+import { authClient } from '@/lib/auth-client';
 import React from 'react'
-import { FaGoogle } from "react-icons/fa";
-import { FaGithubSquare } from "react-icons/fa";
-
-
+import { FaGoogle, FaGithubSquare } from "react-icons/fa";
 
 const RightBar = () => {
+
+    const handleGoogle = async () => {
+        await authClient.signIn.social({
+            provider: "google",
+        });
+    };
+
+    const handleGithub = async () => {
+        await authClient.signIn.social({
+            provider: "github",
+        });
+    };
+
     return (
         <div className='font-bold text-3xl'>
-            <h2>Login with </h2>
-            <div className='flex flex-col gap-2 mt-2 '>
+            <h2>Login with</h2>
 
-                <button className='btn btn-outline btn-success'>
+            <div className='flex flex-col gap-2 mt-2'>
+
+                <button className='btn btn-outline btn-success' onClick={handleGoogle}>
                     <FaGoogle />
-                    Login with google
+                    Login with Google
                 </button>
-                <button className='btn btn-outline btn-success '>
-                    <FaGithubSquare />
-                    Login with github
-                </button>
-            </div>
 
+                <button className='btn btn-outline btn-success' onClick={handleGithub}>
+                    <FaGithubSquare />
+                    Login with GitHub
+                </button>
+
+            </div>
         </div>
     )
 }
 
-export default RightBar
+export default RightBar;
