@@ -51,4 +51,4 @@ const NewsCategoriesPage = async ({ params }) => {
     );
 };
 
-export default NewsCategoriesPage;
+export default NewsCategoriesPage; 
