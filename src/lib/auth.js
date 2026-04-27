@@ -6,10 +6,14 @@ const client = new MongoClient(process.env.DB_URI);  //mongodb account
 const db = client.db();
 
 export const auth = betterAuth({
-  database: mongodbAdapter(db, {
-    // Optional: if you don't provide a client, database transactions won't be enabled.
-    client
-  }),
+    database: mongodbAdapter(db, {
+        // Optional: if you don't provide a client, database transactions won't be enabled.
+        client
+    }),
+
+    emailAndPassword: {
+        enabled: true,
+    },
 });
 
 
@@ -20,7 +24,9 @@ export const auth = betterAuth({
 
 
 
-faQRabDgAO7xZQYr
-//    passs
 
-lazy-news
+
+// faQRabDgAO7xZQYr
+//   passs
+
+// lazy-news
