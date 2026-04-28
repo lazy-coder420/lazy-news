@@ -27,10 +27,10 @@ const Navbar = () => {
 
 
         <li>
-          <NavLink href={'/About'}>About</NavLink>
+          <NavLink href={'/about'}>About</NavLink>
         </li>
         <li>
-          <NavLink href={'/Career'}>Career</NavLink>
+          <NavLink href={'/career'}>Career</NavLink>
         </li>
       </ul>
 
@@ -69,4 +69,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default Navbar;
