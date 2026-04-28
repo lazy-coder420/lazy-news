@@ -53,7 +53,7 @@ const Navbar = () => {
             className="rounded-full object-cover"
           />
 
-          <button className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md transition " onClick={async () => await authClient.signOut()}>
+          <button className="bg-red-500 hover:bg-red-600 text-white px-4  py-2 rounded-md transition " onClick={async () => await authClient.signOut()}>
             Logout
           </button>
         </div>
