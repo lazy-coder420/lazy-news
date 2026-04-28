@@ -1,36 +1,159 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 📰 Dragoon News
 
-## Getting Started
+A modern responsive **React-based news application** that delivers real-time news across multiple categories.
+It includes **authentication for personalized access** and a clean UI for smooth user experience.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Live Demo
+
+👉 https://your-live-site-link.vercel.app
+
+---
+
+## 📌 Project Purpose
+
+Dragoon News is built to provide users with real-time news articles from different categories using a public API.
+It focuses on **clean UI, responsiveness, and user authentication**.
+
+---
+
+## ✨ Features
+
+* 📰 Real-time news fetching
+* 📂 Category-based filtering
+* 🔍 News details page
+* 🔐 User authentication (Firebase)
+* 📱 Fully responsive design
+* ⚡ Fast and optimized performance
+* 🎯 Clean modern UI
+
+---
+
+## 🧑‍💻 Tech Stack
+
+* React.js
+* Tailwind CSS
+* Firebase Authentication
+* React Router DOM
+* React Icons
+* REST API
+
+---
+
+## 🌐 API Reference
+
+Base URL:
+
+```
+https://openapi.programming-hero.com/api
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 📂 Get All Categories
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+GET /news/categories
+```
 
-## Learn More
+Full URL:
 
-To learn more about Next.js, take a look at the following resources:
+```
+https://openapi.programming-hero.com/api/news/categories
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 🗞️ Get News by Category
 
-## Deploy on Vercel
+```
+GET /news/category/{category_id}
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Example:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+https://openapi.programming-hero.com/api/news/category/01
+```
+
+---
+
+### 📄 Get News Details
+
+```
+GET /news/{news_id}
+```
+
+Example:
+
+```
+https://openapi.programming-hero.com/api/news/0282e0e58a5c404fbd15261f11c2ab6a
+```
+
+---
+
+## 🧱 Layout Structure
+
+The project has **3 main layouts**:
+
+### 1️⃣ Home Layout
+
+* Navbar
+* Categories
+* Featured news
+
+### 2️⃣ News Layout
+
+* News cards grid
+* Filter system
+* Pagination (optional)
+
+### 3️⃣ Details Layout
+
+* Full news article
+* Image, title, description
+* Author info
+
+---
+
+## 🔐 Authentication
+
+* Firebase Authentication used
+* Email/Password login
+* Protected routes for user access
+
+---
+
+## 📁 Installation
+
+```bash
+git clone https://github.com/your-username/dragoon-news.git
+cd dragoon-news
+npm install
+npm run dev
+```
+
+---
+
+## 📦 Build
+
+```bash
+npm run build
+```
+
+---
+
+## 👨‍💻 Developer
+
+Developed as a learning project focusing on:
+
+* API integration
+* Authentication system
+* Responsive UI design
+
+---
+
+## 📜 License
+
+This project is open-source and free to use.
