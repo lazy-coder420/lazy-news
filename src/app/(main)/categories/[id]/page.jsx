@@ -36,7 +36,7 @@ const NewsCategoriesPage = async ({ params }) => {
                 <LeftBar categories={categories} activeID={id} />
             </div>
 
-            <div className="col-span-6 bg-emerald-100 p-4 rounded">
+            <div className="col-span-6 p-4 rounded">
                 <h2 className="font-bold text-xl">All News</h2>
 
                 {news.map((data) => (
@@ -44,7 +44,7 @@ const NewsCategoriesPage = async ({ params }) => {
                 ))}
             </div>
 
-            <div className="col-span-3 bg-cyan-100 p-4 rounded">
+            <div className="col-span-3 p-4 rounded">
                 <RightBar />
             </div>
         </div>
