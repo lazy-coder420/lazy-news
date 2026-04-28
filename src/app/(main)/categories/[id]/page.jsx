@@ -17,7 +17,7 @@ const NewsCategoriesPage = async ({ params }) => {
                     <LeftBar categories={categories} activeID={id} />
                 </div>
 
-                <div className="col-span-6 bg-emerald-100 p-4 rounded">
+                <div className="col-span-6 bg-emerald-200 p-4 rounded">
                     <h2 className="font-bold text-xl">All News</h2>
                     <p className="text-gray-600 mt-4">No news found for this category.</p>
                 </div>
