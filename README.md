@@ -7,7 +7,7 @@ It includes **authentication for personalized access** and a clean UI for smooth
 
 ## 🚀 Live Demo
 
-👉 https://your-live-site-link.vercel.app
+👉 https://lazy-news-gf61.vercel.app/categories/01
 
 ---
 
